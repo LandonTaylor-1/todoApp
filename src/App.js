@@ -28,6 +28,12 @@ class App extends Component {
     })
   }
 
+  // remove = () => {
+  //   this.setState({
+  //     todos: this.state.todos.slice(this.state.todos[this.state.todos], 1)
+  //   })
+  // }
+
   render() {
     return (
       <div className="App">
@@ -35,7 +41,7 @@ class App extends Component {
         <button onClick={this.onClick}>SUBMIT</button>
         <ul>
           {this.state.todos.map((todo, index) => {
-            return <li key={index}>{todo}</li>
+            return <li key={index}>{todo}<button onClick={()=>this.setState({todos: this.state.todos.splice({index}, 1)})}>Remove</button></li>
           })}
         </ul>
       </div>
